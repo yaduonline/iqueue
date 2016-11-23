@@ -1,1 +1,1 @@
-gunicorn iQueue.wsgi:application -b 0.0.0.0:8000 -c config/gunicorn_conf.py --pythonpath iQueue
+web: python iQueue/manage.py collectstatic --noinput; gunicorn iQueue.wsgi:application -b 0.0.0.0:$PORT -c config/gunicorn_conf.py --pythonpath iQueue
