@@ -1,0 +1,6 @@
+€}q(UiQueue.wsgi]qUapplicationqaUshutilq]q(UcopyfileqUignore_patternsqUcopytreeqUget_archive_formatsq	Ucopyfileobjq
+Uregister_archive_formatqUcopymodeqUmake_archiveqUmoveqUunregister_archive_formatqUrmtreeqUErrorqUcopyqU	ExecErrorqUcopy2qUSpecialFileErrorqUcopystatqUWindowsErrorqeUqueue.migrations]UiQueue]Umanage]Udatetimeq]q(U	timedeltaqUMAXYEARqUdateqUdatetime_CAPIqUtzinfoqUtimeqUMINYEARq Udatetimeq!eUiQueue.urls]q"Uurlpatternsq#aUqueue.views]q$Uindexq%aUqueue.admin]Uqueue]UiQueue.settings]q&(U	TEMPLATESq'UAUTH_PASSWORD_VALIDATORSq(UUSE_L10Nq)ULANGUAGE_CODEq*UUSE_TZq+UUSE_I18Nq,U	DATABASESq-U	TIME_ZONEq.U
+STATIC_URLq/UROOT_URLCONFq0UWSGI_APPLICATIONq1UMIDDLEWARE_CLASSESq2UDEBUGq3UALLOWED_HOSTSq4U
+SECRET_KEYq5UBASE_DIRq6UINSTALLED_APPSq7eUqueue.tests]Uqueue.models]Uosq8]q9(Upopen4q:Uexecleq;Upopen3q<USEEK_CURq=Uspawnlpq>Uexeclpq?Uenvironq@UspawnvpqAUspawnlqBUexecvpqCUmakedirsqDUlinesepqEUP_WAITqFUspawnvqGUspawnveqHUexecvpeqIUunsetenvqJUSEEK_SETqKUgetenvqLUpopen2qMUwalkqNUspawnleqOUexeclqPUnameqQUSEEK_ENDqRUspawnlpeqSU	P_NOWAITOqTUP_NOWAITqUU
+removedirsqVUrenamesqWUspawnvpeqXUexeclpeqYeU
+queue.apps]qZUQueueConfigq[au.
