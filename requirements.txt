@@ -12,6 +12,7 @@ django-rest-swagger==2.1.0
 django-storages==1.5.1
 djangorestframework==3.5.3
 enum34==1.1.6
+gevent==1.1.2
 greenlet==0.4.10
 gunicorn==19.6.0
 ipython==5.1.0
