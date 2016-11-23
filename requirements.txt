@@ -8,6 +8,7 @@ decorator==4.0.10
 dj-database-url==0.4.1
 django-filter==0.15.3
 django-rest-swagger==2.1.0
+django-storages==1.5.1
 djangorestframework==3.5.3
 enum34==1.1.6
 gunicorn==19.6.0
