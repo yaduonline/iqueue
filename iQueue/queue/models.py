@@ -15,7 +15,7 @@ class QueueMember(models.Model):
 
 
 
-class QueueManager(models.Model):
+class QueueManager(models.Manager):
     def create_queue(self, owner):
         queue = self.create(owner=owner)
         return queue
@@ -23,7 +23,7 @@ class QueueManager(models.Model):
 
 class Queue(models.Model):
     name = models.CharField(max_length=255)
-    creation_date = models.DateField()
+    creation_date = models.DateField(auto_now_add=True)
     owner = models.ForeignKey(QueueMember, on_delete=models.CASCADE)
 
     objects = QueueManager()

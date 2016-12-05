@@ -14,6 +14,7 @@ import os
 from os import environ
 import logging
 from django.core.exceptions import ImproperlyConfigured
+from django.core.urlresolvers import reverse_lazy
 
 from core.logs import CustomLogger
 
@@ -238,3 +239,6 @@ LOGGING = {
     },
 }
 ########## END LOGGING CONFIGURATION
+
+#LOGIN_URL = reverse_lazy('login')
+LOGIN_REDIRECT_URL = '/queue/queuemembers/'

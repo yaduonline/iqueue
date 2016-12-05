@@ -1,0 +1,10 @@
+
+{% for q in queues %}
+{{ q.name }} <br/>
+{% endfor %}
+
+<form method="POST" action="create_queue/">
+    {% csrf_token %}
+    {{ queueform }}
+    <input type="submit" value="Create Queue">
+</form>
