@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
-from queue.views import UserViewSet, QueueViewSet, SlotViewSet
+from queue.views import UserViewSet, QueueViewSet, SlotViewSet, QueueMemberViewSet
 from rest_framework import routers
 from rest_framework_swagger.views import get_swagger_view
 from . import views
@@ -9,6 +9,7 @@ router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'queues', QueueViewSet)
 router.register(r'slots', SlotViewSet)
+router.register(r'queuemembers', QueueMemberViewSet)
 
 schema_view = get_swagger_view(title='Queue API')
 urlpatterns = [

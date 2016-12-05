@@ -1,5 +1,6 @@
 from iQueue.settings.base import *
 
+DEBUG=False
 SECRET_KEY = 'sdfnhcc-sdasneh-wewr38r-2hqwe94-iopdsf0'
 
 DATABASES = {
@@ -28,3 +29,7 @@ import dj_database_url
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config()
 ########## END HEROKU DATABASE CONFIGURATION
+
+######### LOGGING CONFIG
+DEFAULT_LOGGER = 'staging_logger'
+######### END

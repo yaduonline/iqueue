@@ -12,7 +12,11 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 from os import environ
+import logging
 from django.core.exceptions import ImproperlyConfigured
+
+from core.logs import CustomLogger
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -48,6 +52,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_swagger',
+    'phonenumber_field',
+    'twitter_bootstrap',
     'queue',
 ]
 
@@ -67,7 +73,9 @@ ROOT_URLCONF = 'iQueue.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            'templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -148,3 +156,85 @@ SWAGGER_SETTINGS = {
     },
     'USE_SESSION_AUTH': True,
 }
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder'
+]
+
+logging.setLoggerClass(CustomLogger)
+########## LOGGING CONFIGURATION
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#logging
+# A sample logging configuration. The only tangible logging
+# performed by this configuration is to send an email to
+# the site admins on every HTTP 500 error when DEBUG=False.
+# See http://docs.djangoproject.com/en/dev/topics/logging for
+# more details on how to customize your logging configuration.
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '[%(process)d][%(thread)d]'
+                      '[%(levelname)-5s] [%(asctime)s] [%(filepath)-20s] '
+                      '[%(funcName)-20s] [%(lineno)-4d] -  %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+        'colored': {
+            '()': 'core.logs.NewColoredFormatter',
+            'format': '%(log_color)s[%(process)d][%(thread)d]'
+                      '[%(levelname)-5s] [%(asctime)s] [%(filepath)-20s] '
+                      '[%(funcName)-20s] [%(lineno)-4d] -  %(yellow)s%(message)s'
+        },
+    },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'colored',
+        },
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'dev_logger': {
+            'handlers': ['console', 'mail_admins'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'prod_logger': {
+            'handlers': ['console', 'mail_admins'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'staging_logger': {
+            'handlers': ['console', 'mail_admins'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'test_logger': {
+            'handlers': ['console', ],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+    },
+}
+########## END LOGGING CONFIGURATION
